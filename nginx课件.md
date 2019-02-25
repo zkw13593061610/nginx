@@ -17,7 +17,7 @@ Nginx是一款轻量级的Web 服务器/反向代理服务器及。其特点是�
 
 * openssl下载地址，用来解析https协议
     
-        https://github.com/openssl/openssl
+        https://github.com/openssl/openssl   下载1.0.1版本
 
 在同级目录下,解压安装zlib、openssl、pcre
 
