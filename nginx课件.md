@@ -184,26 +184,26 @@ http模块可以说是最核心的模块了，它负责HTTP服务器相关属性
 
     http
     {
-        include       mime.types
+        include       mime.types    可以处理的文件类型
     ;
-        default_type  application/octet-stream
+        default_type  application/octet-stream    下载类型 数据流的形式
     ;
         log_format  main  
     '$remote_addr - $remote_user [$time_local] "$request" '
                           '$status $body_bytes_sent "$http_referer" '
-                          '"$http_user_agent" "$http_x_forwarded_for"';
+                          '"$http_user_agent" "$http_x_forwarded_for"';   记录日志的类型
         access_log  /usr/local/var/log/nginx/access.log  main
     ;
-        sendfile        on
+        sendfile        on   高效文件传输
     ;
-        tcp_nopush      on
+        tcp_nopush      on   减少网络报文段的类型
     ;
-        tcp_nodelay     on
+        tcp_nodelay     on    
     ;
-        keepalive_timeout  10
+        keepalive_timeout  10   保持链接的时间，也叫超时的时间
     ;
         #gzip  on;
-        upstream myproject 
+        upstream myproject    负载均衡
     {
             .....
         
@@ -245,18 +245,18 @@ sever 模块是http的子模块，它用来定一个虚拟主机
 
     server 
     {
-            listen       8080
+            listen       8080   端口号
     ;
-            server_name  localhost 192.168.12.10 www.yangyi.com
+            server_name  localhost 192.168.12.10 www.yangyi.com     一般都写，但是正向代理没有
     ;
             # 全局定义，如果都是这一个目录，这样定义最简单。
-            root   /Users/yangyi/www
+            root   /Users/yangyi/www     服务器根目录
     ;
-            index  index.php index.md index.htm
+            index  index.php index.md index.htm   默认首页
     ; 
-            charset utf-8
+            charset utf-8   字符集
     ;
-            access_log  usr/local/var/log/host.access.log  main
+            access_log  usr/local/var/log/host.access.log  main   虚拟主机的访问日志的路径
     ;
             aerror_log  usr/local/var/log/host.error.log  error
     ;
@@ -288,7 +288,7 @@ location 根据它字面意思就知道是来定位的，定位URL，解析URL�
 
     location / 
     {
-                root   /Users/yangyi/www
+                root   /Users/yangyi/www          
     ;
                 index  index.php index.md index.htm
     ;
