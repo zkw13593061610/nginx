@@ -67,7 +67,7 @@ nginx常用命令
 
     ```
     server {
-    resolver 192.168.1.1; #指定DNS服务器IP地址
+    resolver 192.168.1.1; #指定DNS服务器IP地址        
     listen 8080;
     location / {
         proxy_pass http://$http_host$request_uri; #设定代理服务器的协议和地址
